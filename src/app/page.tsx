@@ -1,10 +1,11 @@
+import Intro from "@/components/Intro";
 import React from "react";
 
 function page() {
   return (
-    <section className="py-24">
+    <section className="pb-24 pt-40">
       <div className="container max-w-3xl">
-        <h1 className="text-3xl">Portfolio</h1>
+        <Intro />
       </div>
     </section>
   );
