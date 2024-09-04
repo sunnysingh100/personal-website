@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
@@ -23,9 +24,9 @@ function ThemeToggle() {
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
       {resolvedTheme === "dark" ? (
-        <SunIcon className="size-4 text-orange-300" />
+        <SunIcon className="size-4 text-orange-300 sm:size-6" />
       ) : (
-        <MoonIcon className="size-4 text-sky-950" />
+        <MoonIcon className="size-4 text-sky-950 sm:size-6" />
       )}
     </Button>
   );

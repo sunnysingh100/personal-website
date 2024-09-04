@@ -2,9 +2,9 @@ import React from "react";
 
 function page() {
   return (
-    <section className="p-4 pt-2">
-      <div className="container">
-        <h1 className="text-3xl font-bold">Sunny</h1>
+    <section className="py-24">
+      <div className="container max-w-3xl">
+        <h1 className="text-3xl">Portfolio</h1>
       </div>
     </section>
   );
