@@ -1,7 +1,6 @@
 import { JSX } from "react";
 import { highlight } from "sugar-high";
 import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
-import Counter from "./counter";
 function Code({ children, ...props }: any) {
   let codeHTML = highlight(children);
   return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
@@ -9,7 +8,6 @@ function Code({ children, ...props }: any) {
 
 const components = {
   code: Code,
-  Counter,
 };
 
 export default function MDXContent(
