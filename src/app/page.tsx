@@ -1,4 +1,6 @@
 import Intro from "@/components/Intro";
+import RecentPosts from "@/components/recent-posts";
+import RecentProjects from "@/components/recent-projects";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import React from "react";
 
@@ -10,12 +12,8 @@ function page() {
     <section className="pb-24 pt-40">
       <div className="container max-w-3xl">
         <Intro />
-        <MDXRemote
-          source={`# Hello World
-
-      This is from Server Components!
-      `}
-        />
+        <RecentPosts />
+        <RecentProjects />
       </div>
     </section>
   );
