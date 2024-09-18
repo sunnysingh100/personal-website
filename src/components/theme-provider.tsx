@@ -18,7 +18,7 @@ function ToasterProvider() {
   const { resolvedTheme } = useTheme();
   return (
     <Toaster
-      position="top-right"
+      position="top-center"
       theme={resolvedTheme === "dark" ? "dark" : "light"}
     />
   );

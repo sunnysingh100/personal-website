@@ -1,13 +1,9 @@
 import Intro from "@/components/Intro";
 import RecentPosts from "@/components/recent-posts";
 import RecentProjects from "@/components/recent-projects";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import React from "react";
 
 function page() {
-  const content = `# Hello World
-        This is from Server Components!
-        `;
   return (
     <section className="pb-24 pt-40">
       <div className="container max-w-3xl">

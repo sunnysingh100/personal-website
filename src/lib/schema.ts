@@ -9,7 +9,7 @@ export const ContactFormSchema = z.object({
     .string()
     .min(1, { message: "Email is required." })
     .email("Invalid email."),
-  message: z.string().min(1, { message: "Message is required." }),
+  message: z.string().min(2, { message: "Message is required." }),
 });
 
 export const NewsletterFormSchema = z.object({

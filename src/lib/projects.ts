@@ -16,6 +16,7 @@ export type ProjectMetadata = {
   author?: string;
   publishedAt?: string;
   slug: string;
+  deployedUrl?: string;
 };
 
 export async function getProjectBySlug(slug: string): Promise<Project | null> {
@@ -23,7 +24,15 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     const filePath = path.join(rootDirectory, `${slug}.mdx`);
     const fileContent = fs.readFileSync(filePath, { encoding: "utf8" });
     const { data, content } = matter(fileContent);
-    return { metadata: { ...data, slug }, content };
+    console.log("data", data);
+
+    return {
+      metadata: {
+        ...data,
+        slug,
+      },
+      content,
+    };
   } catch (error) {
     return null;
   }
