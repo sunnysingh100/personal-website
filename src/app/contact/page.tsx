@@ -1,6 +1,10 @@
 import ContactForm from "@/components/ContactForm";
-import React from "react";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Contact Me",
+  description: "Contact page of sunny singh",
+};
 function page() {
   return (
     <section className="pb-24 pt-40">

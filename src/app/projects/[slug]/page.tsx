@@ -5,12 +5,51 @@ import MDXContent from "@/components/mdx-content";
 import { ArrowLeftIcon } from "@radix-ui/react-icons";
 import { getProjectBySlug, getProjects } from "@/lib/projects";
 import { notFound } from "next/navigation";
+import siteMetadata from "@/lib/siteMetaData";
 
 export async function generateStaticParams() {
   const projects = await getProjects();
   const slugs = projects.map((project) => ({ slug: project.slug }));
 
   return slugs;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const project = await getProjectBySlug(params.slug);
+
+  if (!project) {
+    notFound();
+  }
+
+  const { metadata } = project;
+  console.log(metadata);
+
+  const authors = metadata?.author ? [metadata.author] : siteMetadata.author;
+
+  return {
+    title: metadata.title,
+    description: metadata.summary,
+    openGraph: {
+      title: metadata.title,
+      description: metadata.summary,
+      siteName: siteMetadata.title,
+      locale: "en_US",
+      type: "article",
+      publishedTime: metadata.publishedAt,
+      images: metadata.image,
+      authors: authors.length > 0 ? authors : [siteMetadata.author],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadata.title,
+      description: metadata.summary,
+      images: metadata.image,
+    },
+  };
 }
 
 export default async function Project({

@@ -1,6 +1,12 @@
 import React from "react";
 import { getPosts } from "@/lib/posts";
 import PostsWithSearch from "@/components/post-with-search";
+import { Metadata } from "next/types";
+
+export const metadata: Metadata = {
+  title: "All Posts",
+  description: "All posts of sunny singh",
+};
 
 async function Posts() {
   const posts = await getPosts();

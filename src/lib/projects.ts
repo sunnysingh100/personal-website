@@ -24,7 +24,6 @@ export async function getProjectBySlug(slug: string): Promise<Project | null> {
     const filePath = path.join(rootDirectory, `${slug}.mdx`);
     const fileContent = fs.readFileSync(filePath, { encoding: "utf8" });
     const { data, content } = matter(fileContent);
-    console.log("data", data);
 
     return {
       metadata: {

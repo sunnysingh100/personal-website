@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: "Sunny Singh Personal-website",
+  title: "Sunny Singh",
   author: "Sunny",
   headerTitle: "Personal-website",
   description: "A personal-website built with Next.js and Tailwind CSS",
@@ -11,6 +11,7 @@ const siteMetadata = {
   twitter: "https://twitter.com/",
   linkedin: "https://www.linkedin.com/in/sunnysingh123/",
   locale: "en-US",
+  socialBanner: "/social-banner.png",
 };
 
-module.exports = siteMetadata;
+export default siteMetadata;

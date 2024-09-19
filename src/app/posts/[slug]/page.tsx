@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { formatDate } from "@/lib/utils";
 import MDXContent from "@/components/mdx-content";
+import siteMetadata from "@/lib/siteMetaData";
 
 export async function generateStaticParams() {
   const posts = await getPosts();
@@ -12,8 +13,45 @@ export async function generateStaticParams() {
   return slugs;
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const post = await getPostBySlug(params.slug);
+
+  if (!post) {
+    notFound();
+  }
+
+  const { metadata } = post;
+
+  const authors = metadata?.author ? [metadata.author] : siteMetadata.author;
+
+  return {
+    title: metadata.title,
+    description: metadata.summary,
+    openGraph: {
+      title: metadata.title,
+      description: metadata.summary,
+      siteName: siteMetadata.title,
+      locale: "en_US",
+      type: "article",
+      publishedTime: metadata.publishedAt,
+      images: metadata.image,
+      authors: authors.length > 0 ? authors : [siteMetadata.author],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: metadata.title,
+      description: metadata.summary,
+      images: metadata.image,
+    },
+  };
+}
 async function Post({ params }: { params: { slug: string } }) {
   const { slug } = params;
+
   const post = await getPostBySlug(slug);
   if (!post) {
     notFound();
