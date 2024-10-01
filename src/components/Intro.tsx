@@ -6,12 +6,12 @@ export default function Intro() {
       <div className="mt-2 flex-1 md:mt-0">
         <h1 className="title no-underline">Hey, I&#39;m Sunny.</h1>
         <p className="mt-3 font-light text-muted-foreground">
-          I&#39;m a front-end engineer based in Lucknow, India, with expertise
-          in <strong>Next.js</strong>, <strong>Tailwind CSS</strong>,{" "}
-          <strong>TypeScript</strong>, <strong>Jest</strong>, and{" "}
-          <strong>Zustand</strong>. I have a passion for crafting seamless user
-          experiences and continuously exploring new technologies to enhance my
-          skills and projects.
+          I&#39;m a front-end engineer based in Lucknow, India. My expertise
+          includes <strong>Next.js</strong>,<strong> React Native</strong>,{" "}
+          <strong>Tailwind CSS</strong>, <strong>TypeScript</strong>,{" "}
+          <strong>Jest</strong>, and <strong>Zustand</strong>. I have a passion
+          for crafting seamless user experiences and continuously exploring new
+          technologies to enhance my skills and projects.
         </p>
       </div>
       <div className="relative">
